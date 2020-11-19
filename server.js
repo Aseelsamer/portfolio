@@ -7,7 +7,10 @@ const express = require('express');
 //all methods of express 
 const server = express();
 
-const PORT = 3000;
+//access any files inside the public
+server.use(express.static('./public'));
+
+const PORT = process.env.PORT || 3000;
 
 server.get('/test',(request,response)=>{
     console.log('test route');
